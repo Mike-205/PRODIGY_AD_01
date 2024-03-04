@@ -1,19 +1,4 @@
 class CalculateLogic {
-  num calculate(num value1, num value2, String operation) {
-    switch (operation) {
-      case '+':
-        return value1 + value2;
-      case '-':
-        return value1 - value2;
-      case '×':
-        return value1 * value2;
-      case '/':
-        return value1 / value2;
-      default:
-        return 0;
-    }
-  }
-
   num evaluateExpression(String expression) {
     List<String> numbers = expression.split(RegExp(r'[+\-×/]'));
     List<String> operators = expression.split(RegExp(r'[^+\-×/]')).where((s) => s.isNotEmpty).toList();
@@ -42,9 +27,8 @@ class CalculateLogic {
     // Check if the final result is a decimal number
     if (finalResult % 1 != 0) {
       formattedResult = finalResult.toStringAsFixed(2); // Format the result with 3 decimal places
-      formattedResult = formattedResult.replaceAll(RegExp(r'\.?0+$'), '');// Remove trailing zeros
+      formattedResult = formattedResult.replaceAll(RegExp(r'\.?0+$'), ''); // Remove trailing zeros
     }
-
     return num.parse(formattedResult);
   }
 }

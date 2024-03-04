@@ -35,13 +35,9 @@ class _HomePageState extends State<HomePage> {
       }
       else if (text == "=") {
         checker = calculateLogic.evaluateExpression(display);
-        if (checker is double){
-          result = checker.toStringAsFixed(2);
+        result = checker.toString();
         }
-        else {
-          result = checker.toString();
-        }
-      }
+
       else {
         if (display == "0") {
           display = text;
@@ -61,16 +57,13 @@ class _HomePageState extends State<HomePage> {
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constrains){
             double scaleFactor = constrains.maxWidth / 400;
-
             return Container(
               padding: EdgeInsets.symmetric(horizontal: 15 * scaleFactor),
               //margin: const EdgeInsets.only(right: 10, left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   SizedBox(height: 80 * scaleFactor),
-
                   Row (
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -84,9 +77,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-
                   SizedBox(height: 20 * scaleFactor,),
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -100,9 +91,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-
                   SizedBox(height: 30 * scaleFactor),
-
                   Row(
                     children: [
                       AppButtons(text: 'C', textColor: Colors.blue, backgroundColor: Colors.blue.withOpacity(.1), onTap: () => onButtonPressed("C"), scaleFactor: scaleFactor),
@@ -115,7 +104,6 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(height: 25 * scaleFactor),
-
                   Row(
                     children: [
                       AppButtons(text: "7", onTap: () => onButtonPressed("7"), scaleFactor: scaleFactor),
